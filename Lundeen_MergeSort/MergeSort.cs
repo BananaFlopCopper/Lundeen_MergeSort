@@ -16,7 +16,7 @@ namespace Lundeen_MergeSort
            for (int i = 0; i < loopTime; i++)
             {
                 int temp;
-                // if right is larger, then swap
+                // if right 'subarray' is larger, then swap
                 if(array[i] < array[middle + 1])
                 {
                     temp = array[i];
@@ -24,6 +24,7 @@ namespace Lundeen_MergeSort
                     array[middle + 1] = temp;
 
                     // sort right hand side, since it's already sorted, we can stop at the first value smaller than this one
+                    //flops values until value on right is less than current value
                     for (int j = middle; j < right; j++)
                     {
                         if(array[j] < array[j + 1])
@@ -36,19 +37,16 @@ namespace Lundeen_MergeSort
                 }
             }
         }
-       public static int[] Sort(int[] array, int left, int right)
+       public static void Sort(int[] array, int left, int right)
         { // Largest to Smallest
-            if(right-left > 0)
+            if (right - left > 0)
             {
-                int middle = (((right-1)+left) / 2);
-                array = Sort(array, left, middle);
-                array = Sort(array, middle + 1, right);
+                int middle = (((right - 1) + left) / 2);
+                Sort(array, left, middle);
+                Sort(array, middle + 1, right);
                 merge(array, left, middle, right);
             }
-            
-
-            
-            return array;
+            return;
         }
     }
 }
