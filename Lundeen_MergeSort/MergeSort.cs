@@ -8,7 +8,7 @@ namespace Lundeen_MergeSort
 {
     class MergeSort
     {
-        public static void merge(int[] array, int left, int middle, int right)
+        public static void Merge(int[] array, int left, int middle, int right)
         {
             int loopTime = middle;
             loopTime++;
@@ -44,7 +44,7 @@ namespace Lundeen_MergeSort
                 int middle = (((right - 1) + left) / 2);
                 Sort(array, left, middle);
                 Sort(array, middle + 1, right);
-                merge(array, left, middle, right);
+                Merge(array, left, middle, right);
             }
             return;
         }
